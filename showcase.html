@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oyako Hotel — website preview</title>
+<meta name="description" content="Presentation view: the Oyako Hotel site shown at desktop and mobile sizes.">
+<meta name="theme-color" content="#FAF8F4">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FAF8F4'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%239C7B4A' stroke-width='1.6'/%3E%3Ccircle cx='16' cy='16' r='3.4' fill='%239C7B4A'/%3E%3C/svg%3E">
+<style>
+/* ---------------------------------------------------------------------------
+   Presentation showcase. The frames below load the real site (index.html) at a
+   true 390x844 and 1440x900 viewport and are then scaled to fit the stage, so
+   the responsive layout, the booking picker, the availability badges and the
+   WhatsApp links all behave exactly as they do on the live page.
+   Palette, fonts and copy come from site.config.js.
+--------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: 'Libre Baskerville'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url('assets/fonts/libre-baskerville-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Libre Baskerville'; font-style: italic; font-weight: 400; font-display: swap;
+  src: url('assets/fonts/libre-baskerville-400-italic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Libre Baskerville'; font-style: normal; font-weight: 700; font-display: swap;
+  src: url('assets/fonts/libre-baskerville-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter'; font-style: normal; font-weight: 300; font-display: swap;
+  src: url('assets/fonts/inter-300.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url('assets/fonts/inter-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap;
+  src: url('assets/fonts/inter-500.woff2') format('woff2');
+}
+
+:root {
+  --paper: #FAF8F4;
+  --paper-alt: #F3EFE7;
+  --ink: #1E1B17;
+  --ink-soft: #5E574C;
+  --ink-muted: #8A8172;
+  --accent: #9C7B4A;
+  --rule: #E6DFD3;
+  --font-display: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+
+  /* geometry; the script keeps these and its own numbers in step */
+  --phone-w: 390px;
+  --phone-h: 844px;
+  --phone-bez: 13px;
+  --desk-w: 1440px;
+  --desk-h: 900px;
+  --desk-bar: 38px;
+  --cap-h: 28px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ------------------------------------------------------------------ header */
+.bar {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 14px clamp(16px, 2.6vw, 34px);
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+}
+.bar-brand { display: flex; align-items: center; gap: 13px; margin-right: auto; min-width: 0; }
+.mark { display: block; width: 34px; height: 34px; flex: none; color: var(--accent); }
+.mark svg { width: 100%; height: 100%; display: block; }
+.bar-name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 19px;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+.bar-city {
+  display: block;
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-top: 4px;
+}
+
+.switch { display: flex; flex-wrap: wrap; border: 1px solid var(--ink); }
+.switch button {
+  font: inherit;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 11px 16px;
+  margin: 0;
+  border: 0;
+  border-right: 1px solid var(--ink);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition: background .16s, color .16s;
+}
+.switch button:last-child { border-right: 0; }
+.switch button:hover { background: var(--paper-alt); }
+.switch button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+
+/* ------------------------------------------------------------------- stage */
+.stage {
+  flex: 1 1 auto;
+  min-height: 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(20px, 3vw, 46px);
+  padding: 20px clamp(16px, 2.6vw, 34px) 12px;
+  background:
+    radial-gradient(120% 90% at 50% 0%, #FBF9F5 0%, var(--paper-alt) 100%);
+}
+
+.slot { position: relative; flex: none; }
+.device { position: absolute; top: 0; left: 0; transform-origin: top left; }
+.slot[hidden] { display: none; }
+
+/* the caption sits in the reserved strip under each frame, unscaled */
+.cap {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  margin: 0;                 /* a <p> default margin lifted the caption into the frame */
+  height: var(--cap-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  white-space: nowrap;
+}
+.cap .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent); flex: none;
+}
+
+.screen {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper);
+  display: grid;
+}
+.screen iframe { display: block; border: 0; width: 100%; height: 100%; background: var(--paper); }
+.ph {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: 10px;
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.screen.is-loaded .ph { display: none; }
+.ph::after {
+  content: '';
+  width: 26px; height: 26px;
+  margin: 0 auto;
+  border: 1px solid var(--rule);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 1.1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ------------------------------------------------------------------ phone */
+.phone-body {
+  width: calc(var(--phone-w) + var(--phone-bez) * 2);
+  height: calc(var(--phone-h) + var(--phone-bez) * 2);
+  padding: var(--phone-bez);
+  border-radius: 52px;
+  background: linear-gradient(160deg, #33302B 0%, var(--ink) 45%, #171512 100%);
+  box-shadow: 0 26px 60px rgba(30, 27, 23, .3), 0 3px 10px rgba(30, 27, 23, .2);
+  position: relative;
+}
+.phone-body::before,
+.phone-body::after {
+  content: '';
+  position: absolute;
+  right: -2px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: #2A2724;
+}
+.phone-body::before { top: 148px; height: 58px; }   /* volume */
+.phone-body::after  { top: 224px; height: 86px; }   /* power */
+.phone .screen {
+  width: var(--phone-w);
+  height: var(--phone-h);
+  border-radius: 39px;
+}
+
+/* ---------------------------------------------------------------- desktop */
+.win {
+  width: var(--desk-w);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 26px 60px rgba(30, 27, 23, .28), 0 3px 10px rgba(30, 27, 23, .18);
+}
+.win-bar {
+  height: var(--desk-bar);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  background: var(--paper-alt);
+  border-bottom: 1px solid var(--rule);
+}
+.dots { display: flex; gap: 6px; flex: none; }
+.dots i { width: 10px; height: 10px; border-radius: 50%; background: #D9D1C3; display: block; }
+.url {
+  flex: 1 1 auto;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--rule);
+  font-size: 11px;
+  color: var(--ink-muted);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.win-dim { flex: none; font-size: 10px; letter-spacing: 0.16em; color: var(--ink-muted); }
+.win .screen { width: var(--desk-w); height: var(--desk-h); }
+
+/* ----------------------------------------------------------------- footer */
+.foot {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 8px 22px;
+  flex-wrap: wrap;
+  padding: 11px clamp(16px, 2.6vw, 34px);
+  border-top: 1px solid var(--rule);
+  background: var(--paper);
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+.foot .hint { color: var(--ink-soft); }
+.foot .kbd {
+  display: inline-block;
+  padding: 1px 6px;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  font-size: 10px;
+  color: var(--ink-soft);
+}
+.foot .notice { margin-left: auto; }
+
+/* --------------------------------------------------------------- narrow */
+@media (max-width: 720px) {
+  .bar { flex-wrap: wrap; gap: 12px; padding-top: 12px; padding-bottom: 12px; }
+  .bar-brand { margin-right: 0; width: 100%; }
+  .switch { width: 100%; }
+  .switch button { flex: 1 1 0; padding: 10px 8px; letter-spacing: 0.1em; }
+  .stage { padding: 14px 14px 8px; }
+  .foot { font-size: 10px; }
+  .foot .notice { margin-left: 0; }
+  .foot .hint { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ph::after { animation: none; }
+}
+</style>
+</head>
+<body data-mode="side">
+
+<header class="bar">
+  <div class="bar-brand">
+    <span class="mark" id="mark" aria-hidden="true"></span>
+    <span>
+      <span class="bar-name" id="brand-name">Oyako Hotel</span>
+      <span class="bar-city" id="brand-city">Maitama · Abuja</span>
+    </span>
+  </div>
+  <div class="switch" role="group" aria-label="Preview size">
+    <button type="button" data-mode="desktop">Desktop</button>
+    <button type="button" data-mode="mobile">Mobile</button>
+    <button type="button" data-mode="side">Side by side</button>
+  </div>
+</header>
+
+<main class="stage" id="stage">
+  <div class="slot" data-slot="desktop">
+    <div class="device" data-device="desktop">
+      <div class="win">
+        <div class="win-bar">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="url">oyako-hotel.example</span>
+          <span class="win-dim">1440 × 900</span>
+        </div>
+        <div class="screen">
+          <div class="ph">Loading the site</div>
+          <iframe data-frame="desktop" title="Oyako Hotel website at desktop size"></iframe>
+        </div>
+      </div>
+    </div>
+    <p class="cap"><span class="dot" aria-hidden="true"></span>Desktop · 1440 × 900</p>
+  </div>
+
+  <div class="slot" data-slot="mobile">
+    <div class="device phone" data-device="mobile">
+      <div class="phone-body">
+        <div class="screen">
+          <div class="ph">Loading the site</div>
+          <iframe data-frame="mobile" title="Oyako Hotel website at phone size"></iframe>
+        </div>
+      </div>
+    </div>
+    <p class="cap"><span class="dot" aria-hidden="true"></span>Mobile · 390 × 844</p>
+  </div>
+</main>
+
+<footer class="foot">
+  <span class="hint">
+    Both frames are the live site — try the dates, open a room, or use Chat to book.
+    Press <span class="kbd">1</span> <span class="kbd">2</span> <span class="kbd">3</span> to switch.
+  </span>
+  <span class="notice" id="notice"></span>
+</footer>
+
+<script src="site.config.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var C = window.OYAKO || {};
+  var theme = C.theme || {};
+  var brand = C.brand || {};
+
+  /* -------- brand: colours, fonts, name all come from the settings file ---- */
+  var root = document.documentElement;
+  ['paper', 'paperAlt', 'ink', 'inkSoft', 'inkMuted', 'accent', 'rule'].forEach(function (k) {
+    if (theme[k]) {
+      root.style.setProperty('--' + k.replace(/[A-Z]/g, function (m) {
+        return '-' + m.toLowerCase();
+      }), theme[k]);
+    }
+  });
+  if (theme.fontDisplay) root.style.setProperty('--font-display', theme.fontDisplay);
+  if (theme.fontSans) root.style.setProperty('--font-sans', theme.fontSans);
+
+  if (brand.name) document.getElementById('brand-name').textContent = brand.name;
+  if (brand.cityLine) document.getElementById('brand-city').textContent = brand.cityLine;
+  document.getElementById('mark').innerHTML = brand.markSvg ||
+    '<svg viewBox="0 0 44 44" fill="none"><circle cx="22" cy="22" r="20.5" ' +
+    'stroke="currentColor"/><circle cx="22" cy="22" r="7" stroke="currentColor"/></svg>';
+  if (C.meta && C.meta.demoNotice) {
+    document.getElementById('notice').textContent = C.meta.demoNotice;
+  }
+  if (brand.name) document.title = brand.name + ' — website preview';
+
+  /* ------------------------------- geometry ------------------------------- */
+  // Single source of truth for the frame sizes; the CSS reads the same numbers
+  // through custom properties so the two can never drift apart.
+  var DESK = { w: 1440, h: 900, bar: 38 };
+  var PHONE = { w: 390, h: 844, bez: 13 };
+  var CAP = 28;                       // reserved strip for the caption row
+  var NAT = {
+    desktop: { w: DESK.w, h: DESK.h + DESK.bar },
+    mobile: { w: PHONE.w + PHONE.bez * 2, h: PHONE.h + PHONE.bez * 2 }
+  };
+  root.style.setProperty('--desk-w', DESK.w + 'px');
+  root.style.setProperty('--desk-h', DESK.h + 'px');
+  root.style.setProperty('--desk-bar', DESK.bar + 'px');
+  root.style.setProperty('--phone-w', PHONE.w + 'px');
+  root.style.setProperty('--phone-h', PHONE.h + 'px');
+  root.style.setProperty('--phone-bez', PHONE.bez + 'px');
+  root.style.setProperty('--cap-h', CAP + 'px');
+
+  var stage = document.getElementById('stage');
+  var slots = {
+    desktop: document.querySelector('[data-slot="desktop"]'),
+    mobile: document.querySelector('[data-slot="mobile"]')
+  };
+  var devices = {
+    desktop: document.querySelector('[data-device="desktop"]'),
+    mobile: document.querySelector('[data-device="mobile"]')
+  };
+  var frames = {
+    desktop: document.querySelector('[data-frame="desktop"]'),
+    mobile: document.querySelector('[data-frame="mobile"]')
+  };
+
+  /* --------------------------- loading the site --------------------------- */
+  // In the folder build the frames load index.html directly. In the single-file
+  // export window.OYAKO_SITE_HTML holds the whole inlined site once, and both
+  // frames are filled from that one string, so the file is not doubled.
+  var INLINED = window.OYAKO_SITE_HTML || null;
+  var LOAD_TIMEOUT = 8000;      // ms a frame may take before we show it anyway
+  var started = {};             // the frame's content has been assigned
+  var done = {};                // the placeholder is hidden: the frame shows the site
+  var queue = [];               // frames still to be assigned, in order
+  var inflight = null;          // the frame currently being assigned
+
+  function assign(key) {
+    var frame = frames[key];
+    if (!frame) return;
+    if (INLINED) frame.srcdoc = INLINED;
+    else frame.src = 'index.html';
+  }
+
+  // Hide a frame's placeholder and note it on the element so a screenshot pass
+  // can wait for both frames. Three independent signals call this - the frame's
+  // own load event, a 'ready' message posted by the site, and a timer - so no
+  // single WebKit quirk can leave the "Loading the site" overlay up forever.
+  function finish(key, why) {
+    if (done[key]) return;
+    done[key] = true;
+    var frame = frames[key];
+    var screen = frame && frame.closest('.screen');
+    if (screen) {
+      screen.classList.add('is-loaded');
+      screen.dataset.loaded = '1';
+    }
+    if (inflight === key) inflight = null;
+    fit();
+    pump();
+  }
+
+  // Assign the frames one at a time. WebKit can drop the load event of the
+  // second of two large frames assigned at once while the stage is rescaling it,
+  // so the next frame is only assigned once the previous one is up.
+  function pump() {
+    if (inflight || !queue.length) return;
+    var key = queue.shift();
+    inflight = key;
+    started[key] = true;
+    assign(key);
+    setTimeout(function () { finish(key, 'timeout'); }, LOAD_TIMEOUT);
+  }
+
+  function schedule(keys) {
+    keys.forEach(function (key) {
+      if (!started[key] && queue.indexOf(key) === -1) queue.push(key);
+    });
+    pump();
+  }
+
+  Object.keys(frames).forEach(function (key) {
+    frames[key].addEventListener('load', function () { finish(key, 'load'); });
+  });
+
+  // The framed site posts {oyako:'ready'} from app.js as soon as it has booted.
+  // Match it to its frame by window reference, which also works across the
+  // origin boundary when opened from the filesystem and for a srcdoc frame.
+  window.addEventListener('message', function (ev) {
+    if (!ev.data || ev.data.oyako !== 'ready') return;
+    Object.keys(frames).forEach(function (key) {
+      var frame = frames[key];
+      if (!frame || frame.contentWindow !== ev.source) return;
+      var screen = frame.closest('.screen');
+      if (screen) screen.dataset.ready = '1';
+      finish(key, 'message');
+    });
+  });
+
+  /* --------------------------------- modes -------------------------------- */
+  var MODES = ['desktop', 'mobile', 'side'];
+  var buttons = Array.prototype.slice.call(document.querySelectorAll('.switch button'));
+  var mode = 'side';
+
+  function preferredMode() {
+    var hash = (location.hash || '').replace(/^#/, '');
+    if (MODES.indexOf(hash) !== -1) return hash;
+    return window.innerWidth >= 1100 ? 'side' : 'mobile';
+  }
+
+  function setMode(next, remember) {
+    mode = MODES.indexOf(next) === -1 ? 'side' : next;
+    document.body.dataset.mode = mode;
+    buttons.forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.dataset.mode === mode));
+    });
+    slots.desktop.hidden = (mode === 'mobile');
+    slots.mobile.hidden = (mode === 'desktop');
+    // the phone frame goes first: it is the one WebKit loses when both are
+    // assigned together
+    var order = [];
+    if (mode === 'mobile' || mode === 'side') order.push('mobile');
+    if (mode === 'desktop' || mode === 'side') order.push('desktop');
+    schedule(order);
+    if (remember) {
+      try { history.replaceState(null, '', '#' + mode); } catch (e) { location.hash = mode; }
+    }
+    fit();
+  }
+
+  /* ---------------------------------- fit --------------------------------- */
+  function fit() {
+    // Measure the stage's CONTENT box: its border box includes the padding, and
+    // using that made every frame overflow by exactly the padding plus the
+    // caption strip, which clipped the phone.
+    var box = stage.getBoundingClientRect();
+    var cs = getComputedStyle(stage);
+    var padX = parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight);
+    var padY = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
+    var availW = Math.max(120, box.width - padX - 4);
+    var availH = Math.max(120, box.height - padY - CAP - 4);
+    var gap = 30;
+    var kd = 0, kp = 0;
+
+    if (mode === 'desktop') {
+      kd = Math.min(availW / NAT.desktop.w, availH / NAT.desktop.h);
+    } else if (mode === 'mobile') {
+      kp = Math.min(availW / NAT.mobile.w, availH / NAT.mobile.h);
+    } else {
+      // give the desktop frame the width that is left once the phone is placed,
+      // then let the phone take whatever height remains
+      kd = Math.min(availH / NAT.desktop.h, (availW - NAT.mobile.w - gap) / NAT.desktop.w);
+      kd = Math.max(0.04, kd);
+      kp = Math.min(availH / NAT.mobile.h, (availW - NAT.desktop.w * kd - gap) / NAT.mobile.w);
+    }
+
+    place('desktop', clampScale(kd), NAT.desktop);
+    place('mobile', clampScale(kp), NAT.mobile);
+  }
+
+  // never upscale a frame: a scaled-up iframe is blurry on a big screen
+  function clampScale(k) {
+    if (!isFinite(k) || k <= 0) return 0.04;
+    return Math.min(1, k);
+  }
+
+  function place(key, k, nat) {
+    var slot = slots[key];
+    var device = devices[key];
+    if (!slot || !device) return;
+    slot.style.width = Math.round(nat.w * k) + 'px';
+    slot.style.height = Math.round(nat.h * k + CAP) + 'px';
+    device.style.transform = 'scale(' + k + ')';
+  }
+
+  /* -------------------------------- wiring -------------------------------- */
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () { setMode(b.dataset.mode, true); });
+  });
+
+  window.addEventListener('hashchange', function () { setMode(preferredMode(), false); });
+
+  var resizeTimer = null;
+  window.addEventListener('resize', function () {
+    if (resizeTimer) clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(fit, 80);
+  });
+
+  document.addEventListener('keydown', function (ev) {
+    if (ev.metaKey || ev.ctrlKey || ev.altKey) return;
+    var map = { '1': 'desktop', '2': 'mobile', '3': 'side' };
+    if (map[ev.key]) { setMode(map[ev.key], true); }
+  });
+
+  setMode(preferredMode(), false);
+  // the stage's size can settle after fonts load, so re-fit once more
+  window.addEventListener('load', fit);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit).catch(function () {});
+})();
+</script>
+</body>
+</html>
