@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A - Midnight Bronze - Oyako Hotel style direction</title>
+<link rel="stylesheet" href="../../assets/fonts/fonts.css">
+<style>
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:'Jost',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+.note{max-width:1200px;margin:0 auto;padding:10px 24px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.55}
+.top{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 32px;position:relative;z-index:5}
+.brand{display:flex;align-items:center;gap:12px}
+.mark{display:block;width:34px;height:34px;flex:none}
+.wordmark{font-family:'Cormorant Garamond',serif;font-size:26px;letter-spacing:.32em;line-height:1;display:block}
+.wordmark .sub{display:block;font-family:'Jost',sans-serif;font-size:8.5px;letter-spacing:.3em;opacity:.6;margin-top:5px}
+.top nav{display:flex;gap:26px}
+.top nav a{font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.top-cta{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;border:1px solid currentColor;padding:11px 18px;opacity:1}
+.foot{display:flex;justify-content:space-between;padding:26px 32px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:300;margin:0}
+.bookbar{display:flex;flex-wrap:wrap;align-items:end;gap:0}
+.bookbar label{display:block}
+.bookbar label span{display:block;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:7px;opacity:.7}
+.bookbar input,.bookbar select{font:inherit;font-size:13px;padding:11px 12px;border:0;background:transparent;width:100%;color:inherit}
+.bookbar button{font:inherit;font-size:11px;letter-spacing:.2em;text-transform:uppercase;padding:14px 26px;border:0;cursor:pointer}
+.badge{display:inline-flex;align-items:center;gap:7px;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;padding:6px 11px;border:1px solid currentColor}
+.badge::before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor}
+@media(max-width:820px){
+  .top{flex-wrap:wrap;padding:16px 20px}
+  .top nav{order:3;width:100%;gap:16px;overflow:auto;padding-bottom:4px}
+  .top nav a{white-space:nowrap}
+  .bookbar{flex-direction:column;align-items:stretch}
+  .bookbar label{width:100%;border-bottom:1px solid currentColor}
+  .bookbar button{width:100%}
+  .foot{flex-direction:column;gap:8px;padding:20px}
+}
+
+.dir-a{background:#0B0B0C;color:#F2EDE4}
+.dir-a .note{color:#C8A464}
+.dir-a .top{border-bottom:1px solid rgba(242,237,228,.14)}
+.dir-a .mark{color:#C8A464}
+.dir-a .top-cta{background:#C8A464;color:#0B0B0C;border-color:#C8A464}
+.dir-a .hero{position:relative;min-height:640px;display:flex;flex-direction:column;justify-content:flex-end;padding:0}
+.dir-a .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.52) saturate(.9)}
+.dir-a .hero .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,12,.75) 0%,rgba(11,11,12,.25) 40%,rgba(11,11,12,.92) 100%)}
+.dir-a .hero .inner{position:relative;padding:120px 32px 0;max-width:1100px}
+.dir-a .eyebrow{font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;color:#C8A464;margin:0 0 26px}
+.dir-a h1{font-size:clamp(42px,6.4vw,88px);line-height:.98;letter-spacing:-.012em;max-width:15ch}
+.dir-a h1 em{font-style:italic;color:#C8A464}
+.dir-a .lede{max-width:52ch;margin:26px 0 0;font-size:15px;line-height:1.85;color:#C6BEB0;font-weight:300}
+.dir-a .bookbar{position:relative;margin:56px 32px 0;background:rgba(20,19,18,.92);border:1px solid rgba(242,237,228,.16);backdrop-filter:blur(6px)}
+.dir-a .bookbar label{flex:1 1 180px;padding:18px 20px 12px;border-right:1px solid rgba(242,237,228,.14)}
+.dir-a .bookbar button{background:#C8A464;color:#0B0B0C;align-self:stretch;padding:0 34px}
+.dir-a .bookbar input,.dir-a .bookbar select{color:#F2EDE4}
+.dir-a .rates{max-width:1200px;margin:0 auto;padding:110px 32px 130px}
+.dir-a .rates .head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid rgba(242,237,228,.16);padding-bottom:20px}
+.dir-a .rates h2{font-size:clamp(30px,3.4vw,46px)}
+.dir-a .rates .head span{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#C8A464}
+.dir-a .row{display:grid;grid-template-columns:290px 1fr auto;gap:34px;align-items:center;padding:34px 0;border-bottom:1px solid rgba(242,237,228,.13)}
+.dir-a .row img{width:290px;height:200px;object-fit:cover}
+.dir-a .row h3{font-size:27px;margin-bottom:8px}
+.dir-a .row .spec{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#9C9488;margin-bottom:12px}
+.dir-a .row p{margin:0;font-size:13.5px;line-height:1.8;color:#B9B1A4;font-weight:300;max-width:46ch}
+.dir-a .price{text-align:right;min-width:190px}
+.dir-a .price .from{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#9C9488}
+.dir-a .price .amt{font-family:'Cormorant Garamond',serif;font-size:40px;line-height:1.1;color:#F2EDE4}
+.dir-a .price .per{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#9C9488}
+.dir-a .price .badge{margin:14px 0 16px;color:#C8A464}
+.dir-a .badge.low{color:#E4A63C}
+.dir-a .badge.out{color:#8A8378}
+.dir-a .btn{display:inline-block;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;padding:14px 30px;background:#C8A464;color:#0B0B0C}
+.dir-a .row.soldout img{filter:grayscale(1) brightness(.62)}
+.dir-a .row.soldout .btn{background:transparent;color:#8A8378;border:1px solid #4A453E}
+.dir-a .foot{border-top:1px solid rgba(242,237,228,.14);color:#9C9488;margin-top:0}
+@media(max-width:820px){
+  .dir-a .hero{min-height:0}
+  .dir-a .hero .inner{padding:96px 20px 0}
+  .dir-a .bookbar{margin:34px 20px 0}
+  .dir-a .bookbar label{border-right:0;border-bottom:1px solid rgba(242,237,228,.14)}
+  .dir-a .rates{padding:64px 20px 90px}
+  .dir-a .rates .head{flex-direction:column;gap:10px}
+  .dir-a .row{grid-template-columns:1fr;gap:20px;padding:26px 0}
+  .dir-a .row img{width:100%;height:220px}
+  .dir-a .price{text-align:left;min-width:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:10px}
+  .dir-a .price .badge{width:100%;margin:6px 0 12px}
+  .dir-a .btn{width:100%;text-align:center}
+}
+</style>
+</head>
+<body class="dir-a">
+  <header class="top">
+    <a class="brand" href="#">
+      <span class="mark"><svg viewBox="0 0 44 44" width="100%" height="100%" fill="none" aria-hidden="true">
+  <circle cx="22" cy="22" r="20.5" stroke="currentColor" stroke-width="1"/>
+  <path d="M22 30.5c-5.2 0-9.4-3-9.4-8.4 0-5.4 4.2-8.6 9.4-8.6s9.4 3.2 9.4 8.6c0 5.4-4.2 8.4-9.4 8.4Z" stroke="currentColor" stroke-width="1"/>
+  <path d="M22 27.6c-3.3 0-6-1.9-6-5.5s2.7-5.7 6-5.7 6 2.1 6 5.7-2.7 5.5-6 5.5Z" stroke="currentColor" stroke-width="1"/>
+  <path d="M22 13.4V8.6M12.6 30.6l-4 3.4M31.4 30.6l4 3.4" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+</svg></span>
+      <span class="wordmark">OYAKO<span class="sub">HOTEL &middot; LAGOS</span></span>
+    </a>
+    <nav>
+      <a href="#">Stay</a><a href="#">Rooms &amp; Suites</a><a href="#">Dining</a><a href="#">Spa</a><a href="#">Gallery</a>
+    </nav>
+    <span class="top-cta">Reserve</span>
+  </header>
+  <p class="note">Direction A &middot; Midnight Bronze &mdash; cinematic evening palette, single-column rate list</p>
+
+<section class="rates">
+  <div class="head"><h2>Rooms &amp; Suites</h2><span>14 &ndash; 17 Nov &middot; 2 guests</span></div>
+  <article class="row">
+    <img src="../../assets/img/room-classic.jpg" alt="Classic Room">
+    <div>
+      <h3>Classic Room</h3>
+      <div class="spec">38 m² &middot; King &middot; 2 guests</div>
+      <p>A calm, tailored room high above Victoria Island.</p>
+    </div>
+    <div class="price">
+      <div class="from">From</div>
+      <div class="amt">$240</div>
+      <div class="per">per night</div>
+      <span class="badge ok">Available</span>
+      <a class="btn" href="#">Book this room</a>
+    </div>
+  </article>
+  <article class="row">
+    <img src="../../assets/img/room-deluxe.jpg" alt="Deluxe Room">
+    <div>
+      <h3>Deluxe Room</h3>
+      <div class="spec">46 m² &middot; King or Twin &middot; 2 guests</div>
+      <p>Corner windows framing the Lagos skyline at dusk.</p>
+    </div>
+    <div class="price">
+      <div class="from">From</div>
+      <div class="amt">$320</div>
+      <div class="per">per night</div>
+      <span class="badge low">Only 2 left</span>
+      <a class="btn" href="#">Book this room</a>
+    </div>
+  </article>
+  <article class="row">
+    <img src="../../assets/img/suite-junior.jpg" alt="Junior Suite">
+    <div>
+      <h3>Junior Suite</h3>
+      <div class="spec">62 m² &middot; King &middot; 3 guests</div>
+      <p>A separate sitting room and a walk-in dressing area.</p>
+    </div>
+    <div class="price">
+      <div class="from">From</div>
+      <div class="amt">$480</div>
+      <div class="per">per night</div>
+      <span class="badge ok">Available</span>
+      <a class="btn" href="#">Book this room</a>
+    </div>
+  </article>
+  <article class="row soldout">
+    <img src="../../assets/img/suite-executive.jpg" alt="Executive Suite">
+    <div>
+      <h3>Executive Suite</h3>
+      <div class="spec">90 m² &middot; King &middot; 3 guests</div>
+      <p>Panelled study, butler service and Club Lounge access.</p>
+    </div>
+    <div class="price">
+      <div class="from">From</div>
+      <div class="amt">$760</div>
+      <div class="per">per night</div>
+      <span class="badge out">Sold out</span>
+      <a class="btn" href="#">Join waitlist</a>
+    </div>
+  </article>
+  <article class="row">
+    <img src="../../assets/img/suite-presidential.jpg" alt="Presidential Suite">
+    <div>
+      <h3>Presidential Suite</h3>
+      <div class="spec">210 m² &middot; King &middot; 4 guests</div>
+      <p>The whole of the 21st floor, and its own terrace pool.</p>
+    </div>
+    <div class="price">
+      <div class="from">From</div>
+      <div class="amt">$1,450</div>
+      <div class="per">per night</div>
+      <span class="badge low">Only 2 left</span>
+      <a class="btn" href="#">Book this room</a>
+    </div>
+  </article>
+</section>
+  <footer class="foot">
+    <span>&copy; 2026 Oyako Hotel Limited</span>
+    <span>Victoria Island &middot; Lagos &middot; Nigeria</span>
+  </footer>
+</body>
+</html>

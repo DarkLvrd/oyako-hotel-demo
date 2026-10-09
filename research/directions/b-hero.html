@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>B - Ivory Champagne - Oyako Hotel style direction</title>
+<link rel="stylesheet" href="../../assets/fonts/fonts.css">
+<style>
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:'Jost',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+.note{max-width:1200px;margin:0 auto;padding:10px 24px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.55}
+.top{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 32px;position:relative;z-index:5}
+.brand{display:flex;align-items:center;gap:12px}
+.mark{display:block;width:34px;height:34px;flex:none}
+.wordmark{font-family:'Cormorant Garamond',serif;font-size:26px;letter-spacing:.32em;line-height:1;display:block}
+.wordmark .sub{display:block;font-family:'Jost',sans-serif;font-size:8.5px;letter-spacing:.3em;opacity:.6;margin-top:5px}
+.top nav{display:flex;gap:26px}
+.top nav a{font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.top-cta{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;border:1px solid currentColor;padding:11px 18px;opacity:1}
+.foot{display:flex;justify-content:space-between;padding:26px 32px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:300;margin:0}
+.bookbar{display:flex;flex-wrap:wrap;align-items:end;gap:0}
+.bookbar label{display:block}
+.bookbar label span{display:block;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:7px;opacity:.7}
+.bookbar input,.bookbar select{font:inherit;font-size:13px;padding:11px 12px;border:0;background:transparent;width:100%;color:inherit}
+.bookbar button{font:inherit;font-size:11px;letter-spacing:.2em;text-transform:uppercase;padding:14px 26px;border:0;cursor:pointer}
+.badge{display:inline-flex;align-items:center;gap:7px;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;padding:6px 11px;border:1px solid currentColor}
+.badge::before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor}
+@media(max-width:820px){
+  .top{flex-wrap:wrap;padding:16px 20px}
+  .top nav{order:3;width:100%;gap:16px;overflow:auto;padding-bottom:4px}
+  .top nav a{white-space:nowrap}
+  .bookbar{flex-direction:column;align-items:stretch}
+  .bookbar label{width:100%;border-bottom:1px solid currentColor}
+  .bookbar button{width:100%}
+  .foot{flex-direction:column;gap:8px;padding:20px}
+  .dir-b .bookbar label{border-right:0;border-bottom:1px solid #E6DFD3}
+  .dir-b .bookbar button{border-top:0}
+}
+
+.dir-b{background:#FAF8F4;color:#1E1B17}
+.dir-b .note{color:#9C7B4A}
+.dir-b .top{border-bottom:1px solid #E6DFD3}
+.dir-b .mark{color:#9C7B4A}
+.dir-b .top-cta{background:#1E1B17;color:#FAF8F4;border-color:#1E1B17}
+.dir-b .hero{display:grid;grid-template-columns:1.02fr 1fr;align-items:stretch;border-bottom:1px solid #E6DFD3}
+.dir-b .hero .copy{padding:96px 56px 96px 32px;display:flex;flex-direction:column;justify-content:center;max-width:620px;margin-left:auto}
+.dir-b .hero .media{position:relative;min-height:560px}
+.dir-b .hero .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dir-b .eyebrow{font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:#9C7B4A;margin:0 0 24px}
+.dir-b h1{font-size:clamp(40px,5vw,72px);line-height:1.03;letter-spacing:-.01em}
+.dir-b h1 em{font-style:italic}
+.dir-b .lede{max-width:44ch;margin:24px 0 0;font-size:14.5px;line-height:1.9;color:#5E574C;font-weight:300}
+.dir-b .rule{height:1px;background:#E6DFD3;margin:34px 0}
+.dir-b .bookbar{align-items:stretch;border:1px solid #E6DFD3;background:#fff}
+.dir-b .bookbar label{flex:1 1 130px;padding:16px 18px 10px;border-right:1px solid #E6DFD3}
+/* the CTA takes its own full-width row inside the card; width (not flex-basis)
+   keeps it in flow when the column layout below switches flex-direction */
+.dir-b .bookbar button{flex:0 0 auto;width:100%;background:#1E1B17;color:#FAF8F4;padding:15px 30px;border-top:1px solid #E6DFD3}
+.dir-b .rates{max-width:1200px;margin:0 auto;padding:110px 32px 130px}
+.dir-b .rates .head{text-align:center;max-width:64ch;margin:0 auto 60px}
+.dir-b .rates h2{font-size:clamp(32px,3.6vw,50px);margin-bottom:18px}
+.dir-b .rates .head p{margin:0;font-size:14px;line-height:1.9;color:#5E574C;font-weight:300}
+.dir-b .grid{display:grid;grid-template-columns:1fr 1fr;gap:54px 44px}
+.dir-b .card figure{margin:0 0 22px;position:relative;overflow:hidden}
+.dir-b .card img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.dir-b .card h3{font-size:25px;letter-spacing:.02em}
+.dir-b .card .spec{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#9C7B4A;margin:10px 0 14px}
+.dir-b .card p{margin:0 0 18px;font-size:13.5px;line-height:1.8;color:#5E574C;font-weight:300}
+.dir-b .card .rule2{height:1px;background:#E6DFD3;margin:0 0 18px}
+.dir-b .card .foot{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0}
+.dir-b .card .amt{font-family:'Cormorant Garamond',serif;font-size:30px}
+.dir-b .card .amt small{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#8A8172;display:block;margin-top:2px}
+.dir-b .acts{display:flex;gap:10px}
+.dir-b .btn{display:inline-block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;padding:13px 20px;border:1px solid #1E1B17}
+.dir-b .btn.primary{background:#1E1B17;color:#FAF8F4}
+.dir-b .badge{color:#2F6B4F;border-color:#C9D8CE;background:#EFF4F0;margin-bottom:14px}
+.dir-b .badge.low{color:#8A5A16;border-color:#E7D6B6;background:#FBF3E4}
+.dir-b .badge.out{color:#7A736A;border-color:#E0DAD0;background:#F2EFEA}
+.dir-b .card.soldout img{filter:grayscale(1) brightness(.94)}
+.dir-b .foot-bar{border-top:1px solid #E6DFD3;color:#8A8172}
+@media(max-width:820px){
+  .dir-b .hero{grid-template-columns:1fr}
+  .dir-b .hero .copy{padding:52px 20px 40px;max-width:none}
+  .dir-b .hero .media{min-height:330px;order:-1}
+  .dir-b .rates{padding:64px 20px 90px}
+  .dir-b .grid{grid-template-columns:1fr;gap:40px}
+  .dir-b .card .foot{flex-direction:column;align-items:flex-start;gap:14px}
+  .dir-b .acts{width:100%}
+  .dir-b .acts .btn{flex:1;text-align:center}
+}
+</style>
+</head>
+<body class="dir-b">
+  <header class="top">
+    <a class="brand" href="#">
+      <span class="mark"><svg viewBox="0 0 44 44" width="100%" height="100%" fill="none" aria-hidden="true">
+  <circle cx="22" cy="22" r="20.5" stroke="currentColor" stroke-width="1"/>
+  <path d="M22 30.5c-5.2 0-9.4-3-9.4-8.4 0-5.4 4.2-8.6 9.4-8.6s9.4 3.2 9.4 8.6c0 5.4-4.2 8.4-9.4 8.4Z" stroke="currentColor" stroke-width="1"/>
+  <path d="M22 27.6c-3.3 0-6-1.9-6-5.5s2.7-5.7 6-5.7 6 2.1 6 5.7-2.7 5.5-6 5.5Z" stroke="currentColor" stroke-width="1"/>
+  <path d="M22 13.4V8.6M12.6 30.6l-4 3.4M31.4 30.6l4 3.4" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+</svg></span>
+      <span class="wordmark">OYAKO<span class="sub">HOTEL &middot; LAGOS</span></span>
+    </a>
+    <nav>
+      <a href="#">Stay</a><a href="#">Rooms &amp; Suites</a><a href="#">Dining</a><a href="#">Spa</a><a href="#">Gallery</a>
+    </nav>
+    <span class="top-cta">Reserve</span>
+  </header>
+  <p class="note">Direction B &middot; Ivory Champagne &mdash; gallery-calm light palette, two-column room cards</p>
+<section class="hero">
+  <div class="copy">
+    <p class="eyebrow">Oyako Hotel &middot; Lagos</p>
+    <h1>Quiet luxury <em>on the water</em></h1>
+    <p class="lede">Ninety-four rooms and suites on the Lagos waterfront, dressed in linen, travertine and light. A house that stays out of the way of your stay.</p>
+    <div class="rule"></div>
+    
+<form class="bookbar " onsubmit="return false">
+  <label><span>Check in</span><input type="date" value="2026-11-14"></label>
+  <label><span>Check out</span><input type="date" value="2026-11-17"></label>
+  <label><span>Guests</span>
+    <select><option>1 Adult</option><option selected>2 Adults</option><option>2 Adults, 1 Child</option><option>3 Adults</option><option>4 Adults</option></select>
+  </label>
+  <button type="submit">Check availability</button>
+</form>
+  </div>
+  <div class="media"><img src="../../assets/img/lobby.jpg" alt="Oyako Hotel lobby in the afternoon"></div>
+</section>
+
+  <footer class="foot">
+    <span>&copy; 2026 Oyako Hotel Limited</span>
+    <span>Victoria Island &middot; Lagos &middot; Nigeria</span>
+  </footer>
+</body>
+</html>
