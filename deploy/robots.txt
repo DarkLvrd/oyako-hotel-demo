@@ -1,0 +1,3 @@
+# Oyako Hotel pitch demo — a private presentation, not a public site.
+User-agent: *
+Disallow: /
