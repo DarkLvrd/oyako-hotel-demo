@@ -1,5 +1,7 @@
 # Oyako Hotel — pitch demo site
 
+**Live site: https://elegant-kleicha-e85c9f.netlify.app**
+
 A single-page, offline, rebrandable website used to pitch hotel companies on
 booking-site work. It is a **demonstration**: prices, availability and reviews
 are illustrative, nothing is really booked, and no payment is ever taken.
